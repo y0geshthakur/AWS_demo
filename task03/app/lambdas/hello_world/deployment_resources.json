@@ -1,0 +1,27 @@
+{
+  "hello_world-role": {
+    "predefined_policies": [],
+    "principal_service": "lambda",
+    "custom_policies": [
+      "lambda-basic-execution"
+    ],
+    "resource_type": "iam_role",
+    "tags": {}
+  },
+  "api_gateway": {
+    "resource_type": "api_gateway",
+    "deploy_stage": "api",
+    "resources": {
+      "/hello": {
+        "methods": {
+          "GET": {
+            "enable_proxy": true,
+            "integration_type": "lambda",
+            "lambda_name": "hello_world"
+          }
+        }
+      }
+    },
+    "tags": {}
+  }
+}
